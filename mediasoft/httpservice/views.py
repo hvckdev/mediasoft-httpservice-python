@@ -1,10 +1,10 @@
-from datetime import datetime
+from django_filters import rest_framework as filters
 
-from django.db.models import F
 from rest_framework import viewsets
 from rest_framework.generics import ListCreateAPIView
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
+from httpservice.filters import ShopFilter
 from httpservice.models import City, Street, Shop
 from httpservice.serializers import CitySerializer, StreetSerializer, ShopSerializer
 
@@ -21,33 +21,10 @@ class StreetViewSet(NestedViewSetMixin, viewsets.ModelViewSet):
 
 
 class ShopListCreateAPIView(ListCreateAPIView):
+    queryset = Shop.objects.all()
     serializer_class = ShopSerializer
-
-    def get_queryset(self):
-        now = datetime.now().time()
-        street = self.request.query_params.get('street')
-        city = self.request.query_params.get('city')
-        opn = self.request.query_params.get('open')
-
-        filters = {}
-
-        if street:
-            filters['street__name'] = street
-
-        if city:
-            filters['city__name'] = city
-
-        if opn:
-            if int(opn) == 1:
-                filters['opens_at__lte'] = F('closes_at')
-                filters['opens_at__lte'] = now
-                filters['closes_at__gte'] = now
-            else:
-                filters['opens_at__gte'] = F('closes_at')
-                filters['opens_at__gte'] = now
-                filters['closes_at__lte'] = now
-
-        return Shop.objects.filter(**filters)
+    filter_backends = [filters.DjangoFilterBackend]
+    filterset_class = ShopFilter
 
     def perform_create(self, serializer):
         serializer.save(city_id=self.request.data['city_id'], street_id=self.request.data['street_id'])
