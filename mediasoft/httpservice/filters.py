@@ -1,7 +1,7 @@
 from datetime import datetime
 
 import django_filters as filters
-from django.db.models import F, Q
+from django.db.models import Q
 
 from httpservice.models import Shop
 
