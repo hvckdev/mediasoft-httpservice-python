@@ -19,6 +19,6 @@ class ShopFilter(filters.FilterSet):
         now = datetime.now().time()
 
         if int(value) == 0:
-            return queryset.filter(Q(opens_at__gte=now) | Q(closes_at__lte=now), opens_at__lt=F('closes_at'))
+            return queryset.filter(Q(opens_at__gte=now) | Q(closes_at__lte=now))
         else:
             return queryset.filter(opens_at__lte=now, closes_at__gte=now)
