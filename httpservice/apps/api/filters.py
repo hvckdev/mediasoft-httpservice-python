@@ -4,7 +4,7 @@ import django_filters as filters
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models import Q
 
-from httpservice.models import Shop
+from httpservice.apps.api.models import Shop
 
 
 class ShopFilter(filters.FilterSet):

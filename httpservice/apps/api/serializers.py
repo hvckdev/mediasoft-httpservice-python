@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from httpservice.models import City, Street, Shop
+from httpservice.apps.api.models import City, Street, Shop
 
 
 class CitySerializer(serializers.HyperlinkedModelSerializer):

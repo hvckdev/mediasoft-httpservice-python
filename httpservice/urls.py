@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework_extensions.routers import ExtendedSimpleRouter
 
-from httpservice.views import CityViewSet, StreetViewSet, ShopListCreateAPIView
+from httpservice.apps.api.views import CityViewSet, StreetViewSet, ShopListCreateAPIView
 
 router = ExtendedSimpleRouter()
 (

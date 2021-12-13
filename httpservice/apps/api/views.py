@@ -4,9 +4,9 @@ from rest_framework import viewsets
 from rest_framework.generics import ListCreateAPIView
 from rest_framework_extensions.mixins import NestedViewSetMixin
 
-from httpservice.filters import ShopFilter
-from httpservice.models import City, Street, Shop
-from httpservice.serializers import CitySerializer, StreetSerializer, ShopSerializer
+from httpservice.apps.api.filters import ShopFilter
+from httpservice.apps.api.models import City, Street, Shop
+from httpservice.apps.api.serializers import CitySerializer, StreetSerializer, ShopSerializer
 
 
 # Create your views here.
