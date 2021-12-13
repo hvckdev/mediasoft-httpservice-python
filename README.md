@@ -10,11 +10,12 @@
 *  **POST /city/city_id/street/** —  создание улицы в городе; (city_id —
 идентификатор города)
 * **POST /shop/** —  создание магазина; Данный метод получает json c
-объектом магазина, в ответ возвращает данные созданной записи.
+объектом магазина, в ответ возвращает данные созданной записи
 * **GET /shop/?street=&city=&open=0/1** — получение списка магазинов
 ## Подготовительные действия
 * Клонировать проект `git clone https://github.com/hvckxm/mediasoft-httpservice-python.git`
 * Установить зависимости `pip3 install -r requirements.txt`
+* Создать базу данных в СУБД PostreSQL
 * По пути `mediasoft/settings.py` в DATABASES указать свои данные
 * Запустить миграции командой `py manage.py migrate`
 ## Запуск
