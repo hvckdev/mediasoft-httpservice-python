@@ -16,7 +16,7 @@
 * Клонировать проект `git clone https://github.com/hvckxm/mediasoft-httpservice-python.git`
 * Установить зависимости `pip3 install -r requirements.txt`
 * Создать базу данных в СУБД PostreSQL
-* По пути `mediasoft/settings.py` в DATABASES указать свои данные
+* По пути `mediasoft/settings.py` в DATABASES указать данные базы данных
 * Запустить миграции командой `py manage.py migrate`
 ## Запуск
 * Запуск в режиме отладки осуществляется командой `py manage.py runserver`
