@@ -4,7 +4,7 @@ import django_filters as filters
 from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db.models import Q
 
-from httpservice.apps.api.models import Shop
+from httpservice.api.models import Shop
 
 
 class ShopFilter(filters.FilterSet):
@@ -23,4 +23,3 @@ class ShopFilter(filters.FilterSet):
             return queryset.filter(Q(opens_at__gte=now) | Q(closes_at__lte=now))
         else:
             return queryset.filter(opens_at__lte=now, closes_at__gte=now)
-

@@ -4,7 +4,7 @@ from rest_framework.test import APITestCase
 
 from django.urls import reverse
 
-from httpservice.apps.api.models import City
+from httpservice.api.models import City
 
 
 class CityViewSetTestCase(APITestCase):
